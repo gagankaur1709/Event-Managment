@@ -1,3 +1,15 @@
+// listen for auth changes
+firebase.auth().onAuthStateChanged(user=>{
+    if(user)
+    {
+        console.log("User logged in")
+    }
+    else{
+        console.log("User logged out")
+    }
+})
+
+
 const signupForm = document.querySelector('#SignupForm');
 if(signupForm)
 {
