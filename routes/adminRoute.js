@@ -6,16 +6,15 @@ const route = express.Router()
 
 route.post('/',async(req,res,err)=>{
   try{
-    const adminPassword=req.body.password
+    
     const adminName=req.body.name
     const adminEmail=req.body.email
     const adminPhone = req.body.phone
     const admin= await Admin.create({
-      adminPassword: adminPassword,
       adminName: adminName,
       adminEmail: adminEmail,
       adminPhone: adminPhone,
-    },{fields:['adminPassword','adminName','adminEmail','adminPhone']})
+    },{fields:['adminName','adminEmail','adminPhone']})
     res.status(201).send(admin)
   } catch (err){
     console.log(err.message)
@@ -24,14 +23,10 @@ route.post('/',async(req,res,err)=>{
 
 route.get('/',async(req,res,err)=>{
   try{
-    const allTeam= await OrganizingTeam.findAll({
-      where:{
-        teamId: TeamId,
-      }
-    });
+    const allTeam= await OrganizingTeam.findAll();
     res.status(201).send(allTeam)
   } catch {
-    console.log(err)
+    console.log(err.message)
   }
 })
 

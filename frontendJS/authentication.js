@@ -3,6 +3,7 @@ firebase.auth().onAuthStateChanged(user=>{
     if(user)
     {
         console.log("User logged in")
+        
     }
     else{
         console.log("User logged out")
@@ -26,7 +27,10 @@ if(signupForm)
         firebase.auth().createUserWithEmailAndPassword(email,password).then( cred =>{
             console.log(cred)
             signupForm.reset()
+            
             alert("You have been successfully signed up! Click log in.")
+            location.assign('../html/login.html')
+            
         })
     
     })
@@ -47,7 +51,17 @@ if(loginForm)
         firebase.auth().signInWithEmailAndPassword(email,password).then(cred => {
             console.log(cred.user)
             loginForm.reset()
-            alert("You have been successfully logged in!")
+            if(email == "admin@gmail.com" && password == "admin123")
+            {
+                alert("Successfully logged in as admin")
+                location.assign('../html/adminDashboard.html')
+            }
+            else
+            {
+                alert("You have been successfully logged in!")
+                location.assign('../html/orgTeamDashboard.html')
+            }
+            
         })
     })
 }
@@ -63,4 +77,6 @@ if(logout)
             alert("You have been successfully logged out!")
         })
     })
+
+
 }

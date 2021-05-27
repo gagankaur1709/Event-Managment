@@ -8,11 +8,11 @@ module.exports =(db, DataTypes) => {
       unique: true,
       primaryKey: true
     },
-    teamPassword: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false
-     },
+    // teamPassword: {
+    //   type: DataTypes.STRING,
+    //   unique: true,
+    //   allowNull: false
+    //  },
     teamName: {
       type: DataTypes.STRING,
       unique: true,

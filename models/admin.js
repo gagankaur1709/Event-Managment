@@ -8,10 +8,6 @@ module.exports = (db, DataTypes) => {
       unique: true,
       primaryKey: true
     },
-    adminPassword: {
-      type: DataTypes.STRING,
-      allowNull: false
-     },
       adminName: {
       type: DataTypes.STRING,
       unique: true,
